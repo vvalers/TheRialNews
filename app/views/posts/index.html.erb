@@ -1,16 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
 <% content_for :title, "Posts" %>
 
-<h1>Posts</h1>
+<h1 class="mb-4">Posts</h1>
 
-<div id="posts">
+<div id="posts" class="list-group">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div class="list-group-item">
+      <%= render post %>
+      <p class="mt-2">
+        <%= link_to "Show this post", post, class: "btn btn-info" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "btn btn-primary mt-4" %>

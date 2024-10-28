@@ -2,16 +2,13 @@
 
 <%= render @post %>
 
-<div>
+<div class="mt-4">
+  <div class="btn-group mt-3" style="gap:7px" role="group">
+    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
 
-<div>
-  <%= link_to "Back to posts", posts_path %>
-  <% if user_signed_in? %>
-      <% if current_user.id == @post.user_id %>
-        <%= link_to "Edit this post", edit_post_path(@post) %> |
-        <%= button_to "Destroy this post", @post, method: :delete %>
-      <% end %>
-  <% end %>
-</div>
-
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-warning" %>
+      <%= button_to "Destroy this post", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <% end %>
+  </div>
 </div>

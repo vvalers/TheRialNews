@@ -1,43 +1,43 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+    <%= f.label :email, class: "control-label" %>
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="form-group">
+    <%= f.label :password, class: "control-label" %> 
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+      <small>(<%= @minimum_password_length %> characters minimum)</small>
+    <% end %>
+    <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "control-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "Nombre" %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, class: "form-control", autocomplete: "Nombre" %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autocomplete: "Teléfono" %>
+  <div class="form-group">
+    <%= f.label :phone, class: "control-label" %>
+    <%= f.text_field :phone, class: "form-control", autocomplete: "Teléfono" %>
   </div>
   
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age, autocomplete: "Edad" %>
+  <div class="form-group">
+    <%= f.label :age, class: "control-label" %>
+    <%= f.text_field :age, class: "form-control", autocomplete: "Edad" %>
   </div>  
 
-  <div class="actions">
-    <%= f.submit "Registrarse" %>
+  <div class="form-group mt-3">
+    <%= f.submit "Registrarse", class: "btn btn-primary" %>
   </div>
 <% end %>
 
